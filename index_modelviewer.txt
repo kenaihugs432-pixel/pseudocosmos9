@@ -8,8 +8,8 @@
   </head>
   <body>
     <model-viewer
-      src="pitts.glb"
-      ios-src="pitts.usdz"
+      src="bombe.glb"
+      ios-src="bombe.usdz"
       alt="Modelo AR - fallback"
       ar
       ar-modes="scene-viewer webxr quick-look"
