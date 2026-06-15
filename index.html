@@ -38,10 +38,10 @@
 
     // quick HEAD check do GLB
     try {
-      const head = await fetch('pitts.glb', { method: 'HEAD' });
-      if (!head.ok) { showError('pitts.glb não encontrado (HTTP ' + head.status + ')'); setMessage('pitts.glb não encontrado. Abra fallback.'); return; }
+      const head = await fetch('bombe.glb', { method: 'HEAD' });
+      if (!head.ok) { showError('bombe.glb não encontrado (HTTP ' + head.status + ')'); setMessage('bombe.glb não encontrado. Abra fallback.'); return; }
     } catch (e) {
-      showError('Erro checando pitts.glb: ' + e); return;
+      showError('Erro checando bombe.glb: ' + e); return;
     }
 
     // importar libs
@@ -117,7 +117,7 @@
     // variável que guarda o modelo colocado (garante apenas 1)
     let placedModel = null;
 
-    loader.load('pitts.glb', (gltf) => {
+    loader.load('bombe.glb', (gltf) => {
       baseGLTF = gltf;
       modelPrototype = gltf.scene;
       modelPrototype.scale.set(0.5,0.5,0.5);
@@ -145,12 +145,12 @@
 
       // OBS: preview automático removido — agora o modelo só aparece quando você tocar no reticle
     }, undefined, (err) => {
-      showError('Erro carregando pitts.glb: ' + err);
+      showError('Erro carregando bombe.glb: ' + err);
     });
 
     // AR button / iOS Quick Look fallback
-    // assume pitts.usdz está no mesmo diretório do index.html; ajuste se necessário
-    const usdzUrl = new URL('pitts.usdz', location.href).href;
+    // assume bombe.usdz está no mesmo diretório do index.html; ajuste se necessário
+    const usdzUrl = new URL('bombe.usdz', location.href).href;
 
     function isIOS() {
       return /iP(hone|od|ad)/.test(navigator.platform)
@@ -176,7 +176,7 @@
 
       // opcional: mini-preview com model-viewer (clicável também)
       const mv = document.createElement('model-viewer');
-      mv.setAttribute('src', 'pitts.glb');    // mantém seu GLB para preview web
+      mv.setAttribute('src', 'bombe.glb');    // mantém seu GLB para preview web
       mv.setAttribute('ios-src', usdzUrl);  // fonte para Quick Look
       mv.setAttribute('ar', '');
       mv.setAttribute('ar-modes', 'webxr quick-look scene-viewer');
